@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import java.util.Set;
 
 public final class PubAddSubCommand extends PubSubCommandWithArgs {
-    public PubAddSubCommand(@Nonnull String subCommandName) {
-        super(subCommandName, Set.of());
+    public PubAddSubCommand(@Nonnull String args) {
+        super("add", Set.of(), args);
     }
 }

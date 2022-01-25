@@ -6,10 +6,45 @@ import javax.annotation.Nonnull;
 import java.util.Set;
 
 public sealed abstract class PubSubCommandWithArgs extends PubSubCommand permits PubAddSubCommand {
+    private String args;
+
     PubSubCommandWithArgs(
             @Nonnull String subCommandName,
-            @Nonnull Set<Class<? extends PubOption>> acceptedOption
+            @Nonnull Set<Class<? extends PubOption>> acceptedOption,
+            @Nonnull String... args
     ) {
         super(subCommandName, acceptedOption);
+        this.applyArgs(args);
+    }
+
+    private void applyArgs(@Nonnull String... args) {
+        StringBuilder builder = new StringBuilder();
+        for (String a : args) {
+            if (a.matches("\\r|\\n|\\s|(-[A-Z])|(--[a-z]+(=.*)?)"))
+                throw new IllegalArgumentException("Argument has illegal charter parsed");
+            else {
+                builder.append(a);
+                builder.append(" ");
+            }
+        }
+
+        this.args = builder.toString().trim();
+    }
+
+    @Nonnull
+    public final PubSubCommandWithArgs setArgs(@Nonnull String... args) {
+        applyArgs(args);
+        return this;
+    }
+
+    @Nonnull
+    public final String currentArgs() {
+        return args;
+    }
+
+    @Nonnull
+    @Override
+    public final String buildSubCommand() {
+        return $buildSubCommand() + " " + args;
     }
 }
