@@ -31,15 +31,15 @@ public sealed abstract class PubOption permits AbstractedPubOption, PubDisableAl
     public abstract String buildOption();
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PubOption pubOption = (PubOption) o;
-        return optionName.equals(pubOption.optionName);
+        return optionName.equals(pubOption.optionName) && buildOption().equals(pubOption.buildOption());
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getClass());
+    public final int hashCode() {
+        return Objects.hash(getClass(), optionName);
     }
 }

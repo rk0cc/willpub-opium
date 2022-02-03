@@ -10,10 +10,6 @@ public non-sealed abstract class PubOptionWithValue extends PubOption {
         optionValueSetter(optionValue);
     }
 
-    PubOptionWithValue(@Nonnull String optionName) {
-        this(optionName, "");
-    }
-
     private void optionValueSetter(@Nonnull String optionValue) {
         if (!optionValue.isBlank()) {
             char fc = optionValue.charAt(0), lc = optionValue.charAt(optionValue.length() - 1);

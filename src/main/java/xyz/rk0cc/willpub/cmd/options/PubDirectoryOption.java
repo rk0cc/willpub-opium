@@ -24,8 +24,4 @@ public final class PubDirectoryOption extends PubOptionWithValue {
     public PubDirectoryOption(@Nonnull String optionValue) {
         super("directory", optionValue);
     }
-
-    public PubDirectoryOption() {
-        super("directory");
-    }
 }

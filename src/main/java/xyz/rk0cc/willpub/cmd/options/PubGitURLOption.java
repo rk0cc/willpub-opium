@@ -16,11 +16,4 @@ public final class PubGitURLOption extends PubOptionWithValue {
     public PubGitURLOption(@Nonnull String optionValue) {
         super("git-url", optionValue);
     }
-
-    /**
-     * Construct option for add Git package in the current project.
-     */
-    public PubGitURLOption() {
-        super("git-url");
-    }
 }
