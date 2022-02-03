@@ -6,10 +6,22 @@ import javax.annotation.Nonnull;
 import java.util.Set;
 
 public final class PubCacheSubCommand extends PubSubCommandWithArgs {
-    public PubCacheSubCommand(@Nonnull String... args) {
-        super("cache", Set.of(
-                PubAllOption.class,
-                PubVersionOption.class
-        ), args);
+    private static final Set<Class<? extends PubOption>> CACHE_OPTS = Set.of(
+            PubAllOption.class,
+            PubVersionOption.class
+    );
+
+    public PubCacheSubCommand(@Nonnull String packageName) {
+        super("cache", CACHE_OPTS, CacheAction.ADD.name().toLowerCase(), packageName);
+    }
+
+    public PubCacheSubCommand(@Nonnull CacheAction action) {
+        super("cache", CACHE_OPTS, action.name().toLowerCase());
+    }
+
+    public enum CacheAction {
+        ADD,
+        REPAIR,
+        CLEAN
     }
 }
