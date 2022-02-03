@@ -5,8 +5,8 @@ import xyz.rk0cc.willpub.cmd.options.PubOption;
 import javax.annotation.Nonnull;
 import java.util.Set;
 
-public sealed abstract class AbstractedPubSubCommand extends PubSubCommand permits PubDepsSubCommand, PubGetSubCommand, PubOutdatedSubCommand {
-    AbstractedPubSubCommand(@Nonnull String subCommandName, @Nonnull Set<Class<? extends PubOption>> acceptedOption) {
+public sealed abstract class AbstractedPubSubCommand extends PubSubCommand permits PubDepsSubCommand, PubGetSubCommand, PubOutdatedSubCommand, PubPublishSubCommand {
+    protected AbstractedPubSubCommand(@Nonnull String subCommandName, @Nonnull Set<Class<? extends PubOption>> acceptedOption) {
         super(subCommandName, acceptedOption);
     }
 

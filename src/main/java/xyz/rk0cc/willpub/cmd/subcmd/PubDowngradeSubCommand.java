@@ -11,11 +11,7 @@ public final class PubDowngradeSubCommand extends PubSubCommandWithArgs {
             PubDryRunOption.class
     );
 
-    public PubDowngradeSubCommand(@Nonnull String packageName) {
-        super("downgrade", DOWNGRADE_OPTION, packageName);
-    }
-
-    public PubDowngradeSubCommand() {
-        super("downgrade", DOWNGRADE_OPTION);
+    public PubDowngradeSubCommand(@Nonnull String... packagesName) {
+        super("downgrade", DOWNGRADE_OPTION, packagesName);
     }
 }

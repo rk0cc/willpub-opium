@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 public non-sealed abstract class PubOptionWithValue extends PubOption {
     private String optionValue;
 
-    PubOptionWithValue(@Nonnull String optionName, @Nonnull String optionValue) {
+    protected PubOptionWithValue(@Nonnull String optionName, @Nonnull String optionValue) {
         super(optionName);
         optionValueSetter(optionValue);
     }

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
  * @since 1.0.0
  */
 public non-sealed abstract class AbstractedPubOption extends PubOption {
-    AbstractedPubOption(@Nonnull String optionName) {
+    protected AbstractedPubOption(@Nonnull String optionName) {
         super(optionName);
     }
 
