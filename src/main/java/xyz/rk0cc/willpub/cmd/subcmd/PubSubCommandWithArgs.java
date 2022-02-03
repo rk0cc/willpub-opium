@@ -20,7 +20,7 @@ public sealed abstract class PubSubCommandWithArgs extends PubSubCommand permits
     private void applyArgs(@Nonnull String... args) {
         StringBuilder builder = new StringBuilder();
         for (String a : args) {
-            if (a.matches("\\r|\\n|\\s|(-[A-Z])|(--[a-z\\-_]+(=.*)?)"))
+            if (a.matches("\\r|\\n|\\s|(-[A-Za-z])|(--[A-Za-z\\-_]+(=.*)?)"))
                 throw new IllegalArgumentException("Argument has illegal charter parsed");
             else {
                 builder.append(a);
