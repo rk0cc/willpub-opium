@@ -24,23 +24,23 @@ final class PubOptionTest {
     void testOptionValueExport() {
         assertEquals(
                 "--git-url=git@example.com:foo/bar.git",
-                new PubGitURLOption().setOptionValue("git@example.com:foo/bar.git").buildOption()
+                new PubGitURLOption("git@example.com:foo/bar.git").buildOption()
         );
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new PubGitURLOption().setOptionValue("foo bar")
+                () -> new PubGitURLOption("foo bar")
         );
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new PubGitURLOption().setOptionValue("\"foo bar'")
+                () -> new PubGitURLOption("\"foo bar'")
         );
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new PubGitURLOption().setOptionValue("\"go\"lol\"")
+                () -> new PubGitURLOption("\"go\"lol\"")
         );
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new PubGitURLOption().setOptionValue("Hello\nWorld")
+                () -> new PubGitURLOption("Hello\nWorld")
         );
     }
 }
