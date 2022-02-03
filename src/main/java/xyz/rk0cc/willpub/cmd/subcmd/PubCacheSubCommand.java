@@ -6,8 +6,8 @@ import javax.annotation.Nonnull;
 import java.util.Set;
 
 public final class PubCacheSubCommand extends PubSubCommandWithArgs {
-    public PubCacheSubCommand(@Nonnull String subCommandName, @Nonnull String... args) {
-        super(subCommandName, Set.of(
+    public PubCacheSubCommand(@Nonnull String... args) {
+        super("cache", Set.of(
                 PubAllOption.class,
                 PubVersionOption.class
         ), args);
