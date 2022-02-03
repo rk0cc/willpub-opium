@@ -8,6 +8,12 @@ import javax.annotation.Nonnull;
  * @since 1.0.0
  */
 public non-sealed abstract class PubDisableAllowedOption extends PubOption {
+    /**
+     * Decide the default option is disabled when construct {@link PubDisableAllowedOption}. Default value is
+     * <code>false</code>.
+     */
+    public static boolean DISABLE_AS_DEFAULT_OPTION = false;
+
     private boolean disableOption;
 
     PubDisableAllowedOption(@Nonnull String optionName, boolean disableOption) {
@@ -16,7 +22,7 @@ public non-sealed abstract class PubDisableAllowedOption extends PubOption {
     }
 
     PubDisableAllowedOption(@Nonnull String optionName) {
-        this(optionName, false);
+        this(optionName, DISABLE_AS_DEFAULT_OPTION);
     }
 
     /**

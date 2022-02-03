@@ -8,6 +8,11 @@ import javax.annotation.Nonnull;
  * @since 1.0.0
  */
 public non-sealed abstract class AbstractedPubOption extends PubOption {
+    /**
+     * Construct option with given subcommand name.
+     *
+     * @param optionName Subcommand name for calling on <code>pub</code>.
+     */
     protected AbstractedPubOption(@Nonnull String optionName) {
         super(optionName);
     }
