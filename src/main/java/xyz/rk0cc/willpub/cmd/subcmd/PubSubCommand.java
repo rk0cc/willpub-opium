@@ -7,6 +7,7 @@ import xyz.rk0cc.willpub.exceptions.cmd.IllegalSubCommandOptionException;
 import xyz.rk0cc.willpub.exceptions.cmd.PerquisitesOptionsNotFoundException;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -76,6 +77,16 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
     @Nonnull
     public final PubSubCommand addOption(@Nonnull PubOption option) {
         return addOption(option, true);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Nullable
+    public final <O extends PubOption> O getOption(@Nonnull Class<O> option) {
+        return (O) appliedOption.get(option);
+    }
+
+    public final boolean hasOption(@Nonnull Class<? extends PubOption> option) {
+        return appliedOption.containsKey(option);
     }
 
     @Nonnull
