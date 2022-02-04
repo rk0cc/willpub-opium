@@ -3,6 +3,7 @@ package xyz.rk0cc.willpub.cmd.subcmd;
 import xyz.rk0cc.willpub.cmd.annotation.PubGlobalOption;
 import xyz.rk0cc.willpub.cmd.annotation.PubPerquisitesOptions;
 import xyz.rk0cc.willpub.cmd.options.PubOption;
+import xyz.rk0cc.willpub.exceptions.cmd.IllegalSubCommandOptionException;
 import xyz.rk0cc.willpub.exceptions.cmd.PerquisitesOptionsNotFoundException;
 
 import javax.annotation.Nonnull;
@@ -26,11 +27,7 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
 
     private void optionTypeAssertion(@Nonnull Class<? extends PubOption> optionType) {
         if (optionType.getAnnotation(PubGlobalOption.class) == null && !acceptedOption.contains(optionType))
-            throw new IllegalArgumentException(getClass().getSimpleName() +
-                    " does not accept option " +
-                    optionType.getSimpleName() +
-                    "."
-            );
+            throw new IllegalSubCommandOptionException(getClass(), optionType);
     }
 
     @Nonnull
