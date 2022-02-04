@@ -67,6 +67,20 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         return this;
     }
 
+    /**
+     * Apply or replace if existed this option to this subcommand.
+     *
+     * @param option Specify which {@link PubOption} is applied into this subcommand.
+     *
+     * @return Current subcommand that allowing chaining methods.
+     *
+     * @see #addOption(PubOption, boolean)
+     */
+    @Nonnull
+    public final PubSubCommand addOption(@Nonnull PubOption option) {
+        return addOption(option, true);
+    }
+
     @Nonnull
     public final PubSubCommand removeOption(@Nonnull Class<? extends PubOption> optionType) {
         appliedOption.remove(optionType);

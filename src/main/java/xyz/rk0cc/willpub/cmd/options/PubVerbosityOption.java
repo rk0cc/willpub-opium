@@ -10,7 +10,28 @@ public final class PubVerbosityOption extends PubOptionWithValue {
         super("verbosity", optionValue);
     }
 
+    public PubVerbosityOption(@Nonnull VerbosityLevel optionValue) {
+        super("verbosity", optionValue.name().toLowerCase());
+    }
+
     public PubVerbosityOption() {
         super("verbosity", "all");
+    }
+
+    @Nonnull
+    public PubOptionWithValue setOptionValue(@Nonnull VerbosityLevel optionValue) {
+        return setOptionValue(optionValue.name().toLowerCase());
+    }
+
+    @Nonnull
+    public VerbosityLevel currentOptionValueInEnum() {
+        return VerbosityLevel.valueOf(currentOptionValue().toUpperCase());
+    }
+
+    public enum VerbosityLevel {
+        ALL,
+        IO,
+        NORMAL,
+        SOLVER
     }
 }
