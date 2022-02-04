@@ -1,6 +1,7 @@
 package xyz.rk0cc.willpub.cmd.annotation;
 
 import xyz.rk0cc.willpub.cmd.options.PubOption;
+import xyz.rk0cc.willpub.cmd.subcmd.PubSubCommand;
 
 import java.lang.annotation.*;
 
@@ -24,6 +25,14 @@ public @interface PubPerquisitesOptions {
      *         {@link xyz.rk0cc.willpub.cmd.subcmd.PubSubCommand#addOption(PubOption, boolean) assigned} already.
      */
     Class<? extends PubOption>[] perquisites();
+
+    /**
+     * Indicate which {@link PubSubCommand subcommand} are affected with perquisites. By default, it contains empty
+     * array which all subcommands will be applied.
+     *
+     * @return An array of {@link PubSubCommand} that specify which subcommands can be affected.
+     */
+    Class<? extends PubSubCommand>[] affectedSubCommands() default {};
 
     /**
      * Indicate the {@link PerquisitesPolicy policy} when applying annotated {@link PubOption}.
