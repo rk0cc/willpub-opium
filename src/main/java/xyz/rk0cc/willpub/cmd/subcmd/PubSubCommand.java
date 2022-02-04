@@ -39,7 +39,9 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
 
         final PubPerquisitesOptions ppo = option.getClass().getAnnotation(PubPerquisitesOptions.class);
 
-        if (ppo != null) {
+        if (ppo != null &&
+                (ppo.affectedSubCommands().length == 0 ||
+                        Arrays.stream(ppo.affectedSubCommands()).anyMatch(asc -> asc.equals(this.getClass())))) {
             int matchedCount = 0;
 
             for (Class<? extends PubOption> o : ppo.perquisites()) {
@@ -71,7 +73,14 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
 
         // Found options that have perquisites
         final Set<Class<? extends PubOption>> perqOpt = appliedOption.keySet().stream()
-                .filter(oc -> !Objects.isNull(oc.getAnnotation(PubPerquisitesOptions.class)))
+                .filter(oc -> {
+                    PubPerquisitesOptions p = oc.getAnnotation(PubPerquisitesOptions.class);
+
+                    if (Objects.isNull(p)) return false;
+                    else if (p.affectedSubCommands().length == 0) return true;
+
+                    return Arrays.stream(p.affectedSubCommands()).anyMatch(asc -> asc.equals(this.getClass()));
+                })
                 .collect(Collectors.toUnmodifiableSet());
 
         if (!perqOpt.isEmpty()) {
