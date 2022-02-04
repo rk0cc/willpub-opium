@@ -8,8 +8,12 @@ import java.util.concurrent.*;
 
 public class PubCommand {
     private final DartFlutterProgramAvailability availability;
+    private final String dartSDK, flutterSDK;
+    private boolean inited = false;
 
     public PubCommand(@Nullable String dartSDK, @Nullable String flutterSDK) {
+        this.dartSDK = dartSDK;
+        this.flutterSDK = flutterSDK;
         this.availability = new DartFlutterProgramAvailability(dartSDK, flutterSDK);
     }
 
