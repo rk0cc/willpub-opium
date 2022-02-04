@@ -5,7 +5,7 @@ import xyz.rk0cc.willpub.cmd.options.PubOption;
 import javax.annotation.Nonnull;
 import java.util.Set;
 
-public sealed abstract class PubSubCommandWithArgs extends PubSubCommand permits PubAddSubCommand, PubCacheSubCommand, PubDowngradeSubCommand, PubRemoveSubCommand, PubTokenSubCommand, PubUpgradeSubCommand, PubUploaderSubCommand {
+public non-sealed abstract class PubSubCommandWithArgs extends PubSubCommand {
     private String args;
 
     protected PubSubCommandWithArgs(
