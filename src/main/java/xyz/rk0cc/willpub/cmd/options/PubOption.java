@@ -31,6 +31,13 @@ public sealed abstract class PubOption implements Cloneable
     @Nonnull
     public abstract String buildOption();
 
+    /**
+     * Compare other {@link PubOption} that contains same data or not.
+     *
+     * @param o Other {@link PubOption} to matching are the same.
+     *
+     * @return true if both same.
+     */
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
@@ -39,11 +46,21 @@ public sealed abstract class PubOption implements Cloneable
         return optionName.equals(pubOption.optionName) && buildOption().equals(pubOption.buildOption());
     }
 
+    /**
+     * Generate {@link PubOption}'s hash code by using {@link #getClass()} and name of the option.
+     *
+     * @return {@link Objects#hash(Object...) Hashed} result of {@link #getClass()} and option name.
+     */
     @Override
     public final int hashCode() {
         return Objects.hash(getClass(), optionName);
     }
 
+    /**
+     * Clone current state of {@link PubOption} into independent one.
+     *
+     * @return An independence {@link PubOption} with same state data inside.
+     */
     @Nonnull
     @Override
     public abstract PubOption clone();
