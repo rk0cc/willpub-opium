@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
  * Apply subcommand with <code>--all</code> option that depending on the subcommand's task.
  * <h3>Affect when parsing {@linkplain PubAllOption} in different
  * {@linkplain xyz.rk0cc.willpub.cmd.subcmd.PubSubCommand subcommands}</h3>
- * <table>
+ * <table border="1">
  *     <tr>
  *         <th>Subcommands</th>
  *         <th>Affect</th>
