@@ -58,9 +58,9 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         }
 
         if (appliedOption.containsKey(option.getClass()) && replaceIfExisted)
-            appliedOption.put(option.getClass(), option);
+            appliedOption.put(option.getClass(), option.clone());
 
-        appliedOption.putIfAbsent(option.getClass(), option);
+        appliedOption.putIfAbsent(option.getClass(), option.clone());
 
         return this;
     }
@@ -82,7 +82,8 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
     @SuppressWarnings("unchecked")
     @Nullable
     public final <O extends PubOption> O getOption(@Nonnull Class<O> option) {
-        return (O) appliedOption.get(option);
+        PubOption result = appliedOption.get(option);
+        return Objects.isNull(result) ? null : (O) result.clone();
     }
 
     public final boolean hasOption(@Nonnull Class<? extends PubOption> option) {
