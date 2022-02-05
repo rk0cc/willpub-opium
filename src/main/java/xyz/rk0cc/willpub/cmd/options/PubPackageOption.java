@@ -13,6 +13,11 @@ import javax.annotation.Nonnull;
  *      </a>
  */
 public final class PubPackageOption extends PubOptionWithValue<PubPackageOption> {
+    /**
+     * Construct <code>--package</code> option.
+     *
+     * @param optionValue Package name which want to apply an email address.
+     */
     public PubPackageOption(@Nonnull String optionValue) {
         super("package", optionValue);
     }

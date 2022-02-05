@@ -12,7 +12,8 @@ final class PubSubCommandOptionApplyTest {
     @Test
     void testGlobalOptionApply() {
         assertDoesNotThrow(() -> new PubGetSubCommand().addOption(new PubHelpOption()));
-        assertDoesNotThrow(() -> new PubAddSubCommand("path").addOption(new PubVerbosityOption()));
+        assertDoesNotThrow(() -> new PubAddSubCommand("path")
+                .addOption(new PubVerbosityOption(PubVerbosityOption.VerbosityLevel.ALL)));
         assertDoesNotThrow(
                 () -> new PubOutdatedSubCommand().addOption(new PubDirectoryOption("/foo"))
                         .addOption(new PubHelpOption())
