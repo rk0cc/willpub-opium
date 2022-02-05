@@ -44,4 +44,18 @@ final class PubSubCommandOptionApplyTest {
                         .addOption(new PubGitRefOption("master"))
         );
     }
+
+    @DisplayName("Remove related option if perquisites option removed")
+    @Test
+    void testAutoRemoveIfPerquisitesOptionRemoved() {
+        PubSubCommand subCommand = new PubAddSubCommand("foo")
+                .addOption(new PubGitUrlOption("xyz"))
+                .addOption(new PubGitPathOption("aaa/bbb/"));
+
+        assertTrue(subCommand.hasOption(PubGitPathOption.class));
+
+        subCommand.removeOption(PubGitUrlOption.class);
+
+        assertFalse(subCommand.hasOption(PubGitPathOption.class));
+    }
 }
