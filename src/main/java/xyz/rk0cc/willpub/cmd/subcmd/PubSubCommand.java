@@ -65,6 +65,10 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         return this;
     }
 
+    public final boolean isEmptyOptions() {
+        return appliedOption.isEmpty();
+    }
+
     /**
      * Apply or replace if existed this option to this subcommand.
      *

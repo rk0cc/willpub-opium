@@ -7,7 +7,7 @@ import java.util.Set;
 
 public final class PubUpgradeSubCommand extends PubSubCommandWithArgs {
     public PubUpgradeSubCommand(@Nonnull String... packagesName) {
-        super("upgrade", Set.of(
+        super(true, "upgrade", Set.of(
                 PubOfflineOption.class,
                 PubDryRunOption.class,
                 PubPrecompileOption.class,

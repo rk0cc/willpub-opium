@@ -7,7 +7,7 @@ import java.util.Set;
 
 public final class PubUploaderSubCommand extends PubSubCommandWithArgs {
     public PubUploaderSubCommand(@Nonnull UploaderOption option, @Nonnull String email) {
-        super("uploader", Set.of(PubPackageOption.class), option.name().toLowerCase(), email);
+        super(true, "uploader", Set.of(PubPackageOption.class), option.name().toLowerCase(), email);
     }
 
     public enum UploaderOption {

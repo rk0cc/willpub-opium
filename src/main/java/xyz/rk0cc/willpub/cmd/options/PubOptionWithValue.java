@@ -27,6 +27,11 @@ public non-sealed abstract class PubOptionWithValue<V extends PubOptionWithValue
         optionValueSetter(optionValue);
     }
 
+    /**
+     * Set option value {@link String} to {@link #optionValue} with validation.
+     *
+     * @param optionValue Parse value.
+     */
     private void optionValueSetter(@Nonnull String optionValue) {
         if (!optionValue.isBlank()) {
             char fc = optionValue.charAt(0), lc = optionValue.charAt(optionValue.length() - 1);

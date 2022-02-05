@@ -8,15 +8,26 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public non-sealed abstract class PubSubCommandWithArgs extends PubSubCommand {
+    private final boolean optBeforeArgs;
     private String args;
+
+    protected PubSubCommandWithArgs(
+            boolean optBeforeArgs,
+            @Nonnull String subCommandName,
+            @Nonnull Set<Class<? extends PubOption>> acceptedOption,
+            @Nonnull String... args
+    ) {
+        super(subCommandName, acceptedOption);
+        this.optBeforeArgs = optBeforeArgs;
+        this.applyArgs(args);
+    }
 
     protected PubSubCommandWithArgs(
             @Nonnull String subCommandName,
             @Nonnull Set<Class<? extends PubOption>> acceptedOption,
             @Nonnull String... args
     ) {
-        super(subCommandName, acceptedOption);
-        this.applyArgs(args);
+        this(false, subCommandName, acceptedOption, args);
     }
 
     private void applyArgs(@Nonnull String... args) {
@@ -51,9 +62,35 @@ public non-sealed abstract class PubSubCommandWithArgs extends PubSubCommand {
         return args;
     }
 
+    private void optionApplier(@Nonnull StringBuilder builder) {
+        if (!isEmptyOptions())
+            builder.append(subCommandOptionFlags());
+    }
+
+    private void argsApplier(@Nonnull StringBuilder builder) {
+        if (!args.isBlank())
+            builder.append(args);
+    }
+
     @Nonnull
     @Override
     public final String buildSubCommand() {
-        return subCommandProgram() + " " + args + (args.isBlank() ? "" : " ") + subCommandOptionFlags();
+        StringBuilder builder = new StringBuilder();
+        builder.append(subCommandProgram());
+
+        if (!args.isBlank() || !isEmptyOptions()) {
+            builder.append(" ");
+            if (optBeforeArgs) {
+                optionApplier(builder);
+                builder.append(" ");
+                argsApplier(builder);
+            } else {
+                argsApplier(builder);
+                builder.append(" ");
+                optionApplier(builder);
+            }
+        }
+
+        return builder.toString().trim();
     }
 }

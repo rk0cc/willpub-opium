@@ -12,6 +12,6 @@ public final class PubDowngradeSubCommand extends PubSubCommandWithArgs {
     );
 
     public PubDowngradeSubCommand(@Nonnull String... packagesName) {
-        super("downgrade", DOWNGRADE_OPTION, packagesName);
+        super(true, "downgrade", DOWNGRADE_OPTION, packagesName);
     }
 }
