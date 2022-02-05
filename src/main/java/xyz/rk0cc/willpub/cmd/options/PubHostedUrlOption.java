@@ -20,4 +20,10 @@ public final class PubHostedUrlOption extends PubOptionWithValue {
     public PubHostedUrlOption(@Nonnull String optionValue) {
         super("hosted-url", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubHostedUrlOption(currentOptionValue());
+    }
 }

@@ -6,4 +6,10 @@ public final class PubVersionOption extends PubOptionWithValue {
     public PubVersionOption(@Nonnull String optionValue) {
         super("version", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubVersionOption(currentOptionValue());
+    }
 }

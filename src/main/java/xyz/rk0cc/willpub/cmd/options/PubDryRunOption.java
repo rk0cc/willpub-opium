@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Perform dry run that make the {@link xyz.rk0cc.willpub.cmd.subcmd.PubSubCommand subcommands} does not affect any
  * changes in the project.
@@ -12,5 +14,11 @@ public final class PubDryRunOption extends AbstractedPubOption {
      */
     public PubDryRunOption() {
         super("dry-run");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubDryRunOption();
     }
 }

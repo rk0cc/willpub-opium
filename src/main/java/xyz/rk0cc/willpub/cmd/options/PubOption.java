@@ -9,7 +9,8 @@ import java.util.Objects;
  *
  * @since 1.0.0
  */
-public sealed abstract class PubOption permits AbstractedPubOption, PubDisableAllowedOption, PubOptionWithValue {
+public sealed abstract class PubOption implements Cloneable
+        permits AbstractedPubOption, PubDisableAllowedOption, PubOptionWithValue {
     private final String optionName;
 
     PubOption(@Nonnull String optionName) {
@@ -42,4 +43,8 @@ public sealed abstract class PubOption permits AbstractedPubOption, PubDisableAl
     public final int hashCode() {
         return Objects.hash(getClass(), optionName);
     }
+
+    @Nonnull
+    @Override
+    public abstract PubOption clone();
 }

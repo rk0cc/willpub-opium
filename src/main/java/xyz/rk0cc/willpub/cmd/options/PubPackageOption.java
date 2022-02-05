@@ -6,4 +6,10 @@ public final class PubPackageOption extends PubOptionWithValue {
     public PubPackageOption(@Nonnull String optionValue) {
         super("uploader", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubPackageOption(currentOptionValue());
+    }
 }

@@ -18,4 +18,10 @@ public final class PubExecutableOption extends PubOptionWithValue {
     public PubExecutableOption(@Nonnull String optionValue) {
         super("executable", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubExecutableOption(currentOptionValue());
+    }
 }

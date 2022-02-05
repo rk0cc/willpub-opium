@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Option for {@link xyz.rk0cc.willpub.cmd.subcmd.PubAddSubCommand} to indicate the dependency will be added as dev
  * dependency instead of regular dependency.
@@ -14,5 +16,11 @@ public final class PubDevOption extends AbstractedPubOption {
      */
     public PubDevOption() {
         super("dev");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubDevOption();
     }
 }

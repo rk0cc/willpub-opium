@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Colourizing output for highlighting result of subcommands.
  *
@@ -20,5 +22,11 @@ public final class PubColorOption extends PubDisableAllowedOption {
      */
     public PubColorOption() {
         super("color");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubColorOption(isParseDisabled());
     }
 }

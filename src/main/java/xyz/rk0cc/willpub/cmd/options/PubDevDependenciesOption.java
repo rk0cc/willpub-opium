@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Apply option for {@link xyz.rk0cc.willpub.cmd.subcmd.PubOutdatedSubCommand} that should development dependencies
  * included the result.
@@ -23,5 +25,11 @@ public final class PubDevDependenciesOption extends PubDisableAllowedOption {
      */
     public PubDevDependenciesOption() {
         super("dev-dependencies");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubDevDependenciesOption(isParseDisabled());
     }
 }

@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * An option for {@link xyz.rk0cc.willpub.cmd.subcmd.PubDepsSubCommand} that to print all available executables into
  * console.
@@ -14,5 +16,11 @@ public final class PubExecutablesOption extends AbstractedPubOption {
      */
     public PubExecutablesOption() {
         super("executables");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubExecutablesOption();
     }
 }

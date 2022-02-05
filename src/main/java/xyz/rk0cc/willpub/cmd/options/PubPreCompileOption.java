@@ -10,4 +10,10 @@ public final class PubPreCompileOption extends PubDisableAllowedOption {
     public PubPreCompileOption(@Nonnull String optionName) {
         super("precompile");
     }
+
+    @Nonnull
+    @Override
+    public PubDisableAllowedOption clone() {
+        return new PubPreCompileOption(isParseDisabled());
+    }
 }

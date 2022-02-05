@@ -28,6 +28,12 @@ public final class PubVerbosityOption extends PubOptionWithValue {
         return VerbosityLevel.valueOf(currentOptionValue().toUpperCase());
     }
 
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubVerbosityOption(currentOptionValue());
+    }
+
     public enum VerbosityLevel {
         ALL,
         IO,

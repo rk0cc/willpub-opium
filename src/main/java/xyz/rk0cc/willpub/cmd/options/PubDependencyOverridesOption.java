@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Apply option for {@link xyz.rk0cc.willpub.cmd.subcmd.PubOutdatedSubCommand} that should override dependencies
  * included the result.
@@ -23,5 +25,11 @@ public final class PubDependencyOverridesOption extends PubDisableAllowedOption 
      */
     public PubDependencyOverridesOption() {
         super("dependency-overrides");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubDependencyOverridesOption(isParseDisabled());
     }
 }

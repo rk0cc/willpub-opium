@@ -6,4 +6,10 @@ public final class PubPathOption extends PubOptionWithValue {
     public PubPathOption(@Nonnull String optionValue) {
         super("path", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubPathOption(currentOptionValue());
+    }
 }

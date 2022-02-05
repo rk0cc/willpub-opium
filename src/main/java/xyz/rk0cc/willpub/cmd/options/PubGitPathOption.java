@@ -28,4 +28,10 @@ public final class PubGitPathOption extends PubOptionWithValue {
     public PubGitPathOption(@Nonnull String optionValue) {
         super("git-path", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubGitPathOption(currentOptionValue());
+    }
 }

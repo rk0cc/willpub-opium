@@ -2,6 +2,8 @@ package xyz.rk0cc.willpub.cmd.options;
 
 import xyz.rk0cc.willpub.cmd.annotation.PubGlobalOption;
 
+import javax.annotation.Nonnull;
+
 /**
  * An {@link PubGlobalOption global option} that just printing usage for subcommands only.
  *
@@ -17,5 +19,11 @@ public final class PubHelpOption extends AbstractedPubOption {
      */
     public PubHelpOption() {
         super("help");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubHelpOption();
     }
 }

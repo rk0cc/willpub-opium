@@ -28,4 +28,10 @@ public final class PubGitRefOption extends PubOptionWithValue {
     public PubGitRefOption(@Nonnull String optionValue) {
         super("git-ref", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubGitRefOption(currentOptionValue());
+    }
 }

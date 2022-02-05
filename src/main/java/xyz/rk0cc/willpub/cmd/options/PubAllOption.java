@@ -1,5 +1,7 @@
 package xyz.rk0cc.willpub.cmd.options;
 
+import javax.annotation.Nonnull;
+
 /**
  * Apply subcommand with <code>--all</code> option that depending on the subcommand's task.
  * <h3>Affect when parsing {@linkplain PubAllOption} in different
@@ -39,5 +41,11 @@ public final class PubAllOption extends AbstractedPubOption {
      */
     public PubAllOption() {
         super("all");
+    }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubAllOption();
     }
 }

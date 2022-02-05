@@ -22,4 +22,10 @@ public final class PubGitUrlOption extends PubOptionWithValue {
     public PubGitUrlOption(@Nonnull String optionValue) {
         super("git-url", optionValue);
     }
+
+    @Nonnull
+    @Override
+    public PubOption clone() {
+        return new PubGitUrlOption(currentOptionValue());
+    }
 }
