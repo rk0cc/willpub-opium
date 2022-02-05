@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
  *      </a>
  */
 @PubPerquisitesOptions(perquisites = PubGitUrlOption.class, affectedSubCommands = PubAddSubCommand.class)
-public final class PubGitRefOption extends PubOptionWithValue {
+public final class PubGitRefOption extends PubOptionWithValue<PubGitRefOption> {
     /**
      * Construct <code>--git-ref</code> option.
      *

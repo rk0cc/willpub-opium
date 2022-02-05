@@ -8,9 +8,12 @@ import javax.annotation.Nonnull;
  * The value must be a {@link String} without new line control charter (<code>\n</code> or <code>\r</code>). If the
  * value contains whitespace charter, entire {@link String} must be quoted when parsing option value.
  *
+ * @param <V> Inherited class of {@link PubOptionWithValue}.
+ *
  * @since 1.0.0
  */
-public non-sealed abstract class PubOptionWithValue extends PubOption {
+@SuppressWarnings("unchecked")
+public non-sealed abstract class PubOptionWithValue<V extends PubOptionWithValue<V>> extends PubOption {
     private String optionValue;
 
     /**
@@ -54,9 +57,9 @@ public non-sealed abstract class PubOptionWithValue extends PubOption {
      * @return Current {@link PubOptionWithValue} that allowing chaining method.
      */
     @Nonnull
-    public final PubOptionWithValue setOptionValue(@Nonnull String optionValue) {
+    public final V setOptionValue(@Nonnull String optionValue) {
         optionValueSetter(optionValue);
-        return this;
+        return (V) this;
     }
 
     /**

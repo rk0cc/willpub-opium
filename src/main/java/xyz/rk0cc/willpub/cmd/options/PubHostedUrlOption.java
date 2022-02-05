@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
  *          <code>--hosted-url</code> option in <code>pub add</code> subcommand.
  *      </a>
  */
-public final class PubHostedUrlOption extends PubOptionWithValue {
+public final class PubHostedUrlOption extends PubOptionWithValue<PubHostedUrlOption> {
     /**
      * Construct <code>--hosted-url</code> option.
      *

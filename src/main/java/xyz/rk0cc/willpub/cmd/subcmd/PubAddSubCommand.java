@@ -14,7 +14,7 @@ public final class PubAddSubCommand extends PubSubCommandWithArgs {
                 PubHostedUrlOption.class,
                 PubPathOption.class,
                 PubSdkOption.class,
-                PubPreCompileOption.class,
+                PubPrecompileOption.class,
                 PubDevOption.class,
                 PubOfflineOption.class,
                 PubDryRunOption.class

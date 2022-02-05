@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
  *          <code>--git-url</code> option in <code>pub add</code> subcommand.
  *      </a>
  */
-public final class PubGitUrlOption extends PubOptionWithValue {
+public final class PubGitUrlOption extends PubOptionWithValue<PubGitUrlOption> {
     /**
      * Construct option with applied Git URL of the package.
      *

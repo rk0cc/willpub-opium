@@ -2,7 +2,7 @@ package xyz.rk0cc.willpub.cmd.options;
 
 import javax.annotation.Nonnull;
 
-public final class PubSdkOption extends PubOptionWithValue {
+public final class PubSdkOption extends PubOptionWithValue<PubSdkOption> {
     public PubSdkOption(@Nonnull String optionValue) {
         super("sdk", optionValue);
     }

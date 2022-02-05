@@ -15,7 +15,7 @@ import javax.annotation.Nonnull;
  * @see <a href="https://dart.dev/tools/pub/cmd#--directorydir-or--c-dir">'--directory' option in documentation.</a>
  */
 @PubGlobalOption
-public final class PubDirectoryOption extends PubOptionWithValue {
+public final class PubDirectoryOption extends PubOptionWithValue<PubDirectoryOption> {
     /**
      * Construct an option with given project directory path as option value.
      *

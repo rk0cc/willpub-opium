@@ -9,7 +9,7 @@ public final class PubGetSubCommand extends AbstractedPubSubCommand {
         super("get", Set.of(
                 PubOfflineOption.class,
                 PubDryRunOption.class,
-                PubPreCompileOption.class
+                PubPrecompileOption.class
         ));
     }
 }

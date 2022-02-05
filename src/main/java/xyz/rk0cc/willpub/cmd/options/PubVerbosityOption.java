@@ -5,7 +5,7 @@ import xyz.rk0cc.willpub.cmd.annotation.PubGlobalOption;
 import javax.annotation.Nonnull;
 
 @PubGlobalOption
-public final class PubVerbosityOption extends PubOptionWithValue {
+public final class PubVerbosityOption extends PubOptionWithValue<PubVerbosityOption> {
     public PubVerbosityOption(@Nonnull String optionValue) {
         super("verbosity", optionValue);
     }
@@ -19,7 +19,7 @@ public final class PubVerbosityOption extends PubOptionWithValue {
     }
 
     @Nonnull
-    public PubOptionWithValue setOptionValue(@Nonnull VerbosityLevel optionValue) {
+    public PubVerbosityOption setOptionValue(@Nonnull VerbosityLevel optionValue) {
         return setOptionValue(optionValue.name().toLowerCase());
     }
 

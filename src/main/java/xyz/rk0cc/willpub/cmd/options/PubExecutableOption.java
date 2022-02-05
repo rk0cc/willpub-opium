@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
  *
  * @see <a href="https://dart.dev/tools/pub/cmd/pub-global#--executablename-or--x-name">Related documentation.</a>
  */
-public final class PubExecutableOption extends PubOptionWithValue {
+public final class PubExecutableOption extends PubOptionWithValue<PubExecutableOption> {
     /**
      * Construct <code>--executable</code> option.
      *

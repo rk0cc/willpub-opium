@@ -26,7 +26,7 @@ import javax.annotation.Nonnull;
  *          Getting while offline in <code>pub get</code> documentation.
  *      </a>
  */
-public final class PubOfflineOption extends PubDisableAllowedOption {
+public final class PubOfflineOption extends PubDisableAllowedOption<PubOfflineOption> {
     /**
      * Construct <code>--offline</code> option.
      *
@@ -46,7 +46,7 @@ public final class PubOfflineOption extends PubDisableAllowedOption {
 
     @Nonnull
     @Override
-    public PubDisableAllowedOption clone() {
+    public PubOption clone() {
         return new PubOfflineOption(isParseDisabled());
     }
 }

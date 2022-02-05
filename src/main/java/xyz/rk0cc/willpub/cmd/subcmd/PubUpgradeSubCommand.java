@@ -10,7 +10,7 @@ public final class PubUpgradeSubCommand extends PubSubCommandWithArgs {
         super("upgrade", Set.of(
                 PubOfflineOption.class,
                 PubDryRunOption.class,
-                PubPreCompileOption.class,
+                PubPrecompileOption.class,
                 PubNullSafetyOption.class,
                 PubMajorVersionsOption.class
         ), packagesName);

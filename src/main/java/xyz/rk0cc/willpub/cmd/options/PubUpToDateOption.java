@@ -2,7 +2,7 @@ package xyz.rk0cc.willpub.cmd.options;
 
 import javax.annotation.Nonnull;
 
-public final class PubUpToDateOption extends PubDisableAllowedOption {
+public final class PubUpToDateOption extends PubDisableAllowedOption<PubUpToDateOption> {
     public PubUpToDateOption(boolean disableOption) {
         super("up-to-date", disableOption);
     }

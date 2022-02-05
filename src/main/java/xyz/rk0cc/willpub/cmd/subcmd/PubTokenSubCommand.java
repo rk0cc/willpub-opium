@@ -37,9 +37,15 @@ public final class PubTokenSubCommand extends PubSubCommandWithArgs {
         REMOVE
     }
 
-    public static final class TokenVarOption extends PubOptionWithValue {
+    public static final class TokenVarOption extends PubOptionWithValue<TokenVarOption> {
         public TokenVarOption(@Nonnull String optionValue) {
             super("env-var", optionValue);
+        }
+
+        @Nonnull
+        @Override
+        public PubOption clone() {
+            return new TokenVarOption(currentOptionValue());
         }
     }
 }

@@ -2,7 +2,7 @@ package xyz.rk0cc.willpub.cmd.options;
 
 import javax.annotation.Nonnull;
 
-public final class PubTransitiveOption extends PubDisableAllowedOption {
+public final class PubTransitiveOption extends PubDisableAllowedOption<PubTransitiveOption> {
     public PubTransitiveOption(boolean disableOption) {
         super("transitive", disableOption);
     }

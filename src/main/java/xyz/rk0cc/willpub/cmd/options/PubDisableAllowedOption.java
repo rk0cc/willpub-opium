@@ -5,9 +5,12 @@ import javax.annotation.Nonnull;
 /**
  * An option can be parsed as disable with giving '<code>no-</code>' prefix before the option name.
  *
+ * @param <D> Inherited class of {@link PubDisableAllowedOption}.
+ *
  * @since 1.0.0
  */
-public non-sealed abstract class PubDisableAllowedOption extends PubOption {
+@SuppressWarnings("unchecked")
+public non-sealed abstract class PubDisableAllowedOption<D extends PubDisableAllowedOption<D>> extends PubOption {
     /**
      * Decide the default option is disabled when construct {@link PubDisableAllowedOption}. Default value is
      * <code>false</code>.
@@ -31,9 +34,9 @@ public non-sealed abstract class PubDisableAllowedOption extends PubOption {
      * @return Same {@link PubDisableAllowedOption option} allows to chain methods.
      */
     @Nonnull
-    public final PubDisableAllowedOption disableThisOption() {
+    public final D disableThisOption() {
         this.disableOption = true;
-        return this;
+        return (D) this;
     }
 
     /**
@@ -42,9 +45,9 @@ public non-sealed abstract class PubDisableAllowedOption extends PubOption {
      * @return Same {@link PubDisableAllowedOption option} allows to chain methods.
      */
     @Nonnull
-    public final PubDisableAllowedOption enableThisOption() {
+    public final D enableThisOption() {
         this.disableOption = false;
-        return this;
+        return (D) this;
     }
 
     /**

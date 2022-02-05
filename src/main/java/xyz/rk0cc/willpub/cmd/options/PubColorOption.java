@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
  *
  * @since 1.0.0
  */
-public final class PubColorOption extends PubDisableAllowedOption {
+public final class PubColorOption extends PubDisableAllowedOption<PubColorOption> {
     /**
      * Construct option with initial option of colourizing subcommand result.
      *

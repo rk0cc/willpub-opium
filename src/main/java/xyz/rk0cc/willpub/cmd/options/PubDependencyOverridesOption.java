@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
  *
  * @see PubDevDependenciesOption
  */
-public final class PubDependencyOverridesOption extends PubDisableAllowedOption {
+public final class PubDependencyOverridesOption extends PubDisableAllowedOption<PubDependencyOverridesOption> {
     /**
      * Construct option that include override dependencies or not.
      *

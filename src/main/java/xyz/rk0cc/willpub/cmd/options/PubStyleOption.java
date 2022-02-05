@@ -2,7 +2,7 @@ package xyz.rk0cc.willpub.cmd.options;
 
 import javax.annotation.Nonnull;
 
-public final class PubStyleOption extends PubOptionWithValue {
+public final class PubStyleOption extends PubOptionWithValue<PubStyleOption> {
     public PubStyleOption(@Nonnull String optionValue) {
         super("style", optionValue);
     }
@@ -12,7 +12,7 @@ public final class PubStyleOption extends PubOptionWithValue {
     }
 
     @Nonnull
-    public PubOptionWithValue setOptionValue(@Nonnull StyleLayout optionValue) {
+    public PubStyleOption setOptionValue(@Nonnull StyleLayout optionValue) {
         return setOptionValue(optionValue.name().toLowerCase());
     }
 

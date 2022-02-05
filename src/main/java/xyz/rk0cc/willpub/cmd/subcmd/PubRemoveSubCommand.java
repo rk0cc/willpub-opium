@@ -10,7 +10,7 @@ public final class PubRemoveSubCommand extends PubSubCommandWithArgs {
         super("remove", Set.of(
                 PubOfflineOption.class,
                 PubDryRunOption.class,
-                PubPreCompileOption.class
+                PubPrecompileOption.class
         ), packageName);
     }
 }
