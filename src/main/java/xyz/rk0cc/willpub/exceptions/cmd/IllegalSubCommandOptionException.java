@@ -5,8 +5,7 @@ import xyz.rk0cc.willpub.cmd.subcmd.PubSubCommand;
 
 import javax.annotation.Nonnull;
 
-public final class IllegalSubCommandOptionException extends IllegalArgumentException {
-    public final Class<? extends PubSubCommand> subCommand;
+public final class IllegalSubCommandOptionException extends IllegalSubCommandSyntaxException {
     public final Class<? extends PubOption> option;
 
     public IllegalSubCommandOptionException(
@@ -14,8 +13,7 @@ public final class IllegalSubCommandOptionException extends IllegalArgumentExcep
             @Nonnull Class<? extends PubOption> option,
             String message
     ) {
-        super(message);
-        this.subCommand = subCommand;
+        super(subCommand, message);
         this.option = option;
     }
 
@@ -28,10 +26,8 @@ public final class IllegalSubCommandOptionException extends IllegalArgumentExcep
 
     @Nonnull
     @Override
-    public String toString() {
-        return super.toString() +
-                "\n\nSubcommand: " + subCommand.getName() +
-                "\nOption: " + option.getName() +
-                "\n\n";
+    public String getSubCommandInfoMessage() {
+        return super.getSubCommandInfoMessage() +
+                "\nOption: " + option.getName();
     }
 }
