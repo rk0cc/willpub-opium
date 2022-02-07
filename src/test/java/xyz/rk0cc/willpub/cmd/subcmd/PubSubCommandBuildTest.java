@@ -10,10 +10,9 @@ final class PubSubCommandBuildTest {
     @Test
     void testBuildCmdString() {
         PubAddSubCommand acmd = (PubAddSubCommand) new PubAddSubCommand("foo")
-                .setArgs("http")
                 .addOption(new PubOfflineOption());
 
-        assertEquals("pub add http --offline", acmd.buildSubCommand());
+        assertEquals("pub add foo --offline", acmd.buildSubCommand());
     }
 
     @DisplayName("Build pub subcommand string which option appeared before argument")

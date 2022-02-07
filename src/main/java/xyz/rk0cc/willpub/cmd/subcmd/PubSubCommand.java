@@ -162,6 +162,16 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         return appliedOption.containsKey(option);
     }
 
+    /**
+     * Remove specific {@link PubOption option} in current subcommand.
+     * <br/>
+     * If remaining option annotated with {@link PubPerquisitesOptions} which required removed class, it will be removed
+     * automatically depending on {@link PubPerquisitesOptions#policy()}.
+     *
+     * @param optionType A {@link Class} of {@link PubOption} that going to be removed.
+     *
+     * @return Same subcommand object that allow chaining methods.
+     */
     @Nonnull
     public final PubSubCommand removeOption(@Nonnull Class<? extends PubOption> optionType) {
         appliedOption.remove(optionType);
@@ -195,6 +205,11 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         return this;
     }
 
+    /**
+     * Clear all applied option in this subcommand.
+     *
+     * @return Same object that allowing chaining methods.
+     */
     @Nonnull
     public final PubSubCommand clearOption() {
         appliedOption.clear();
@@ -223,6 +238,11 @@ public sealed abstract class PubSubCommand permits AbstractedPubSubCommand, PubS
         return ofb.toString();
     }
 
+    /**
+     * Assemble {@link String} of this subcommand when executed.
+     *
+     * @return A {@link String} of pub subcommand.
+     */
     @Nonnull
     public abstract String buildSubCommand();
 }
