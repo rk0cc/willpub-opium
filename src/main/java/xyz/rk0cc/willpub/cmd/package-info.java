@@ -1,5 +1,5 @@
 /**
- * Command control operation for each task.
+ * A java package that handles needs for executing <code>pub</code> commands.
  *
  * @since 1.0.0
  */
