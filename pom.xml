@@ -122,8 +122,6 @@
                 <version>2.22.2</version>
                 <configuration>
                     <trimStackTrace>false</trimStackTrace>
-                    <!-- It is difficult to perform test with CMD -->
-                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>
