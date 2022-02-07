@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.File;
 import java.io.Serializable;
-import java.nio.file.Path;
+import java.nio.file.*;
 
 public final class PubCommandPathProvider implements Serializable, Cloneable {
     private Path dartSDK, flutterSDK;
@@ -17,7 +17,8 @@ public final class PubCommandPathProvider implements Serializable, Cloneable {
     private void assertion(@Nullable Path sdks) {
         if (sdks == null) return;
 
-        assert sdks.isAbsolute();
+        if (!sdks.isAbsolute())
+            throw new IllegalArgumentException("SDK path must be absolute.");
 
         File f = sdks.toFile();
 
@@ -65,5 +66,23 @@ public final class PubCommandPathProvider implements Serializable, Cloneable {
     @Override
     public PubCommandPathProvider clone() {
         return new PubCommandPathProvider(dartSDK, flutterSDK);
+    }
+
+
+    @Nonnull
+    public static PubCommandPathProvider resolveSDKFromDirectory(@Nonnull Path sdkPath) throws FileSystemException {
+        if (!sdkPath.isAbsolute())
+            throw new IllegalArgumentException("The path must be absolute");
+
+        File sdkDir = sdkPath.toFile();
+        if (!sdkDir.isDirectory())
+            throw new NotDirectoryException(sdkDir.getAbsolutePath());
+
+        final boolean win = System.getProperty("os.name").equalsIgnoreCase("windows");
+
+        return new PubCommandPathProvider(
+                sdkPath.resolve("dart" + (win ? ".bat" : "")),
+                sdkPath.resolve("flutter" + (win ? ".bat" : ""))
+        );
     }
 }
