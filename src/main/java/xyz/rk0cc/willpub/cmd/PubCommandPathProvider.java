@@ -59,4 +59,11 @@ public final class PubCommandPathProvider implements Serializable, Cloneable {
     public String buildFlutterExecCmd() {
         return flutterSDK == null ? "flutter" : flutterSDK.toString();
     }
+
+    @SuppressWarnings("MethodDoesntCallSuperMethod")
+    @Nonnull
+    @Override
+    public PubCommandPathProvider clone() {
+        return new PubCommandPathProvider(dartSDK, flutterSDK);
+    }
 }
