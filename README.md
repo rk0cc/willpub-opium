@@ -5,6 +5,11 @@
 
 This package allows operating `pub` command with Java object only and return console context.
 
+## Perquisites
+
+* Ensure `dart` and `flutter`'s executable directory in updated in `PATH` already.
+  * Setting Flutter environment variable tutorial: [link](https://docs.flutter.dev/get-started/install/windows#update-your-path) 
+
 ## Setup
 
 * Maven 3 or above
